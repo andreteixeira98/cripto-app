@@ -1,8 +1,8 @@
 import { useState } from "react"; 
-import { EncryptedMSG } from "./components/encryptedmsg";
-import { DecryptedMSG } from "./components/decryptedmsg";
 
 import {TbSwitchHorizontal} from 'react-icons/tb';
+import { DecryptedMSG } from "../components/decryptedmsg";
+import { EncryptedMSG } from "../components/encryptedmsg";
 
 import styles  from "../styles/Home.module.css";
 
