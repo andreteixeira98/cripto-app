@@ -1,0 +1,12 @@
+.Container{
+  display: flex;
+  flex-direction: column;
+  width: 32rem;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.Container h2{
+  display: block;
+}
