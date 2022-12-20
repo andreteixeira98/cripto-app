@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { TextArea } from "../textAArea";
+import {encrypter,decrypter} from '../../algorithm/index';
 import styles from './styles.module.css';
 
 interface EncryptedProps{
@@ -7,38 +8,20 @@ interface EncryptedProps{
   setMsg:(msg:string)=>void;
   isToEncrypt:boolean;
 }
-export function EncryptedMSG({msg}:EncryptedProps){
+export function EncryptedMSG({msg,isToEncrypt,setMsg}:EncryptedProps){
   const [msgt, setMsgT] = useState('');
-
-
- 
   useEffect(()=>{
 
-    function encrypter(){
-      let newMessage = '';
-      const INCREMENT = 2;
-      for(var i=0; i<msg.length;i++){
-        let simbolAscii = msg.charAt(i).charCodeAt(0);
-        let var_temp = simbolAscii+ INCREMENT;
-
-        console.log('s:'+simbolAscii+' vt:'+var_temp);
-
-        if(var_temp%122 > 0 && (var_temp%122)!==var_temp){
-          const temp = 96+(var_temp%122);
-          console.log("t:",temp)
-          const cc = String.fromCharCode(temp);
-          newMessage+= cc;
-          console.log('cc:',cc);
-        }else{
-          newMessage+=String.fromCharCode(var_temp);
-        }
-        setMsgT(newMessage);
-       
-      }
-      
+    
+    if(isToEncrypt){
+      setMsgT(encrypter(msg)+"")
+    }else{
+      setMsgT(msg);
     }
-    encrypter();
-  },[msg]);
+    
+    
+    
+  },[msg,isToEncrypt, setMsg ]);
 
   return(
     <div className={styles.Container}>

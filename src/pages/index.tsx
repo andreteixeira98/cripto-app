@@ -16,7 +16,7 @@ export default function Home() {
   }
   return (
     <div className={styles.container}>
-      <main className={isToEncrypt? "encryptedInFront" : " decryptedInFront"}>
+      <main className={isToEncrypt? styles.decryptedInFront : styles.encryptedInFront}>
      
         <DecryptedMSG msg={msg} setMsg={setMSG}  isToEncrypt={isToEncrypt}/>
         
